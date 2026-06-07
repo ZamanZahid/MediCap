@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>AI Medication Scanner</title>
+
+    <style>
+
+        body{
+            font-family: Arial;
+            background-color: #f4f4f4;
+            padding: 40px;
+        }
+
+        .container{
+            width: 850px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        h1{
+            color: #222;
+        }
+
+        button{
+            background-color: blue;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .result-box{
+            background-color: #e8e8f8;
+            padding: 20px;
+            margin-top: 25px;
+            border-radius: 10px;
+        }
+
+        pre{
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-size: 16px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>AI Medication Scanner</h1>
+
+    <p>
+        Upload 1 to 3 medication images
+        (front, back, dosage label, etc.)
+    </p>
+
+    <form method="POST" enctype="multipart/form-data">
+
+    <h3>Option 1: Upload Images</h3>
+
+    <input
+        type="file"
+        name="images"
+        id="images"
+        multiple
+        accept="image/*"
+    >
+
+    <br><br>
+
+    <h3>OR</h3>
+
+    <h3>Option 2: Enter Medication Name</h3>
+
+    <input
+        type="text"
+        name="medicine_name"
+        placeholder="Example: Ibuprofen"
+        style="width:300px;padding:10px;"
+    >
+
+    <br><br>
+
+    <button type="submit">
+        Analyze Medication
+    </button>
+
+</form>
+
+    {% if result %}
+
+    <div class="result-box">
+
+        <h2>Medication Analysis</h2>
+
+        <pre>{{ result }}</pre>
+
+    </div>
+
+    {% endif %}
+
+</div>
+    <script>
+
+const input = document.getElementById("images");
+const previewContainer = document.getElementById("preview-container");
+
+input.addEventListener("change", function() {
+
+    previewContainer.innerHTML = "";
+
+    const files = this.files;
+
+    for(let i = 0; i < files.length; i++) {
+
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+
+            const img = document.createElement("img");
+
+            img.src = e.target.result;
+
+            img.style.width = "200px";
+            img.style.margin = "10px";
+            img.style.borderRadius = "10px";
+
+            previewContainer.appendChild(img);
+        };
+
+        reader.readAsDataURL(files[i]);
+    }
+});
+
+</script>
+
+</body>
+
+</html>
