@@ -6,6 +6,7 @@ import os
 from PIL import Image
 
 app = Flask(__name__)
+app.config["TEMPLATES_AUTO_RELOAD"] = True
 load_dotenv()
 
 apikey = os.getenv("API-KEY")
