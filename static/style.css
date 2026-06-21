@@ -173,6 +173,130 @@ pre {
     margin: 0;
 }
 
+.analysis-dashboard {
+    margin-top: 28px;
+}
+
+.analysis-dashboard h2 {
+    margin-top: 0;
+    margin-bottom: 22px;
+    color: #f8fafc;
+    font-size: 24px;
+    letter-spacing: 0.01em;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.analysis-card {
+    background: #111827;
+    border: 1px solid rgba(148, 163, 184, 0.14);
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 140px;
+}
+
+.analysis-card h3 {
+    margin: 0 0 12px;
+    color: #eff6ff;
+    font-size: 18px;
+    letter-spacing: 0.01em;
+}
+
+.analysis-card p {
+    margin: 0;
+    line-height: 1.75;
+    color: #cbd5e1;
+    font-size: 15px;
+}
+
+.analysis-card ul {
+    margin: 0;
+    padding-left: 18px;
+    color: #cbd5e1;
+    line-height: 1.75;
+}
+
+.analysis-card li {
+    margin-bottom: 10px;
+}
+
+.analysis-card li:last-child {
+    margin-bottom: 0;
+}
+
+.risk-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.risk-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.risk-item span:first-child {
+    color: #cbd5e1;
+    font-size: 15px;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 90px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #050816;
+}
+
+.badge--low {
+    background: #22c55e;
+}
+
+.badge--moderate {
+    background: #eab308;
+}
+
+.badge--high {
+    background: #ef4444;
+}
+
+.badge--unknown {
+    background: rgba(148, 163, 184, 0.24);
+    color: #e5e7eb;
+}
+
+@media (max-width: 860px) {
+    .form-grid {
+        display: block;
+    }
+
+    .analysis-dashboard h2 {
+        font-size: 22px;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .analysis-card--hero {
+        grid-column: auto;
+    }
+}
+
 #preview-container {
     margin-top: 20px;
     display: flex;
