@@ -59,7 +59,90 @@
         </div>
         {% endif %}
 
-        {% if result %}
+        {% if structured_result %}
+        <div class="analysis-dashboard">
+            <h2>Medication Analysis</h2>
+            <div class="dashboard-grid">
+                <div class="analysis-card">
+                    <h3>Medication Name</h3>
+                    <p>{{ structured_result["Medication Name"] or "Not available." }}</p>
+                </div>
+                <div class="analysis-card analysis-card--prediction">
+                    <h3>Prediction Analysis</h3>
+                    <div class="risk-list">
+                        <div class="risk-item">
+                            <span>Side Effect Risk</span>
+                            <span class="badge badge--{{ structured_result["Prediction Analysis"]["Side Effect Risk"] | lower | replace(' ', '-') }}">{{ structured_result["Prediction Analysis"]["Side Effect Risk"] or 'Unknown' }}</span>
+                        </div>
+                        <div class="risk-item">
+                            <span>Interaction Risk</span>
+                            <span class="badge badge--{{ structured_result["Prediction Analysis"]["Interaction Risk"] | lower | replace(' ', '-') }}">{{ structured_result["Prediction Analysis"]["Interaction Risk"] or 'Unknown' }}</span>
+                        </div>
+                        <div class="risk-item">
+                            <span>Adherence Risk</span>
+                            <span class="badge badge--{{ structured_result["Prediction Analysis"]["Adherence Risk"] | lower | replace(' ', '-') }}">{{ structured_result["Prediction Analysis"]["Adherence Risk"] or 'Unknown' }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="analysis-card">
+                    <h3>Purpose</h3>
+                    <p>{{ structured_result["Purpose"] or "Not available." }}</p>
+                </div>
+                <div class="analysis-card">
+                    <h3>Active Ingredients</h3>
+                    {% if structured_result["Active Ingredients"] %}
+                    <ul>
+                        {% for ingredient in structured_result["Active Ingredients"] %}
+                        <li>{{ ingredient }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% else %}
+                    <p>Not available.</p>
+                    {% endif %}
+                </div>
+                <div class="analysis-card">
+                    <h3>Typical Dosage</h3>
+                    <p>{{ structured_result["Typical Dosage"] or "Not available." }}</p>
+                </div>
+                <div class="analysis-card">
+                    <h3>Side Effects</h3>
+                    {% if structured_result["Side Effects"] %}
+                    <ul>
+                        {% for item in structured_result["Side Effects"] %}
+                        <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% else %}
+                    <p>Not available.</p>
+                    {% endif %}
+                </div>
+                <div class="analysis-card">
+                    <h3>Warnings</h3>
+                    {% if structured_result["Warnings"] %}
+                    <ul>
+                        {% for item in structured_result["Warnings"] %}
+                        <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% else %}
+                    <p>Not available.</p>
+                    {% endif %}
+                </div>
+                <div class="analysis-card">
+                    <h3>Drug Interactions</h3>
+                    {% if structured_result["Drug Interactions"] %}
+                    <ul>
+                        {% for item in structured_result["Drug Interactions"] %}
+                        <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% else %}
+                    <p>Not available.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% elif result %}
         <div class="result-box">
             <h2>Medication Analysis</h2>
             <pre>{{ result }}</pre>
