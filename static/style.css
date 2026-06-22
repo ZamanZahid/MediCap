@@ -325,3 +325,174 @@ pre {
         justify-content: stretch;
     }
 }
+
+/* API Key Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    background: #111827;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 22px;
+    padding: 40px 36px;
+    max-width: 450px;
+    width: 90%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    color: #94a3b8;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease;
+}
+
+.modal-close-btn:hover {
+    color: #f8fafc;
+}
+
+.modal-content h2 {
+    margin: 0 0 12px;
+    color: #f8fafc;
+    font-size: 24px;
+    letter-spacing: 0.01em;
+    text-align: center;
+}
+
+.modal-content p {
+    color: #cbd5e1;
+    line-height: 1.6;
+    margin: 0 0 24px;
+    font-size: 15px;
+    text-align: center;
+}
+
+.api-key-input {
+    width: 100% !important;
+    padding: 14px 16px !important;
+    height: 52px !important;
+    border-radius: 14px !important;
+    border: 1px solid #334155 !important;
+    background: #0f172a !important;
+    color: #e5e7eb !important;
+    box-sizing: border-box !important;
+    margin-bottom: 20px !important;
+    font-size: 15px !important;
+}
+
+.api-key-input::placeholder {
+    color: #94a3b8 !important;
+}
+
+.api-key-input:focus {
+    outline: none;
+    border-color: #2563eb !important;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1) !important;
+}
+
+.modal-button {
+    width: 100%;
+    padding: 12px 18px !important;
+    height: 52px !important;
+    background-color: #2563eb !important;
+    color: #f8fafc !important;
+    border: none !important;
+    border-radius: 14px !important;
+    cursor: pointer !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    transition: background-color 0.2s ease !important;
+    margin-bottom: 12px !important;
+}
+
+.modal-button:hover {
+    background-color: #1d4ed8 !important;
+}
+
+.modal-hint {
+    font-size: 13px !important;
+    color: #94a3b8 !important;
+    text-align: center !important;
+    margin: 0 !important;
+}
+
+.modal-link {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.modal-link:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+}
+
+/* Change API Key Button */
+.change-api-key-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    padding: 12px 20px;
+    background-color: #2563eb;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #f8fafc;
+    transition: all 0.2s ease;
+    z-index: 500;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    letter-spacing: 0.05em;
+}
+
+.change-api-key-btn:hover {
+    background-color: #1d4ed8;
+    transform: scale(1.06);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+}
+
+.change-api-key-btn:active {
+    transform: scale(0.95);
+}
+
+@media (max-width: 640px) {
+    .change-api-key-btn {
+        bottom: 16px;
+        right: 16px;
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+
+    .modal-content {
+        padding: 32px 24px;
+    }
+}
