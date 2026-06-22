@@ -1,4 +1,3 @@
-
 from flask import Flask, render_template, request
 from google import genai
 from dotenv import load_dotenv
@@ -9,11 +8,6 @@ from PIL import Image
 app = Flask(__name__)
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 load_dotenv()
-
-apikey = os.getenv("API-KEY")
-client = genai.Client(
-    api_key=apikey
-)
 foldersup = "uploads"
 app.config["foldersup"] = foldersup
 
@@ -152,6 +146,20 @@ def index():
 
     if request.method == "POST":
 
+        # Get API key from form data, request header, or environment
+        api_key = request.form.get("api_key") or request.headers.get("X-API-Key") or os.getenv("API-KEY")
+        
+        if not api_key:
+            error = "API key not provided. Please enter your Gemini API key."
+            return render_template(
+                "index.html",
+                result=result,
+                structured_result=structured_result,
+                error=error
+            )
+        
+        client = genai.Client(api_key=api_key)
+
         medicine_name = request.form.get("medicine_name", "").strip()
         uploaded_files = request.files.getlist("images")
 
@@ -253,8 +261,6 @@ def index():
 
                     result = response.text
                     structured_result = parse_medication_response(result)
-
-
 
         except Exception as e:
 
