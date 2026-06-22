@@ -1,4 +1,10 @@
+<div align="center">
+
 ## MediCap 
+
+</div>
+
+---
 
 Many people have "TONS" of medication bottles at home but do not fully understand what each medication is used for, its possible side effects, or important safety warnings. So i made MediCap an AI Medication Scanner to make medication information more accessible for all, by combining image recognition and generative AI into a simple and easy-to-use web application.
 
@@ -39,15 +45,23 @@ Risk levels are shows as either:
 
 ## Screenshots
 
+<div align="center">
+
 ### Home Page
 
-![Home Page](Images/Initial.png)
+<img src="Images/Initial.png" width="850">
+
+<br><br>
 
 ### Medication Analysis Results
 
-![Analysis Result](Images/Analysis.png)
+<img src="Images/Analysis.png" width="850">
 
-![Analysis Result 2](Images/Analysis2.png)
+<br><br>
+
+<img src="Images/Analysis2.png" width="850">
+
+</div>
 
 ---
 
