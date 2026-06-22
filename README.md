@@ -3,6 +3,7 @@
 Many people have "TONS" of medication bottles at home but do not fully understand what each medication is used for, its possible side effects, or important safety warnings. So i made MediCap an AI Medication Scanner to make medication information more accessible for all, by combining image recognition and generative AI into a simple and easy-to-use web application.
 
 MediCap is basically a Medication Scanner that lets the users either upload medication images or manually enter a medication name to get a detailed medication information where the backend is powered by Gemini AI, which helps give specific information about the medicine such as purpose, ingredients, dosage instructions, side effects, warnings, drug interactions, and AI-generated risk predictions.
+
 ---
 
 ## Features
@@ -19,7 +20,7 @@ MediCap is basically a Medication Scanner that lets the users either upload medi
 * Warnings
 * Drug Interactions
 * Storage Information
-* Expiration Information - If visible from image
+* Expiration Information - If visible in the image
 
 ### Prediction Analysis
 
@@ -47,6 +48,7 @@ Risk levels are shows as either:
 ![Analysis Result](Images/Analysis.png)
 
 ![Analysis Result 2](Images/Analysis2.png)
+
 ---
 
 ## Technologies Used
