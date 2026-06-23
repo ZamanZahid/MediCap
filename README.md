@@ -88,7 +88,14 @@ Risk levels are shows as either:
 * python-dotenv
 
 ---
+## Running
 
+## You can open it up at 
+```bash
+https://medicationcap.vercel.app/
+```
+
+## Or run it locally
 ## Installation
 
 ### Clone the Repository
