@@ -8,11 +8,6 @@ from PIL import Image
 app = Flask(__name__)
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 load_dotenv()
-foldersup = "uploads"
-app.config["foldersup"] = foldersup
-
-if not os.path.exists(foldersup):
-    os.makedirs(foldersup)
 
 
 def parse_medication_response(text):
@@ -147,7 +142,7 @@ def index():
     if request.method == "POST":
 
         # Get API key from form data, request header, or environment
-        api_key = request.form.get("api_key") or request.headers.get("X-API-Key") or os.getenv("API-KEY")
+        api_key = request.form.get("api_key") or request.headers.get("X-API-Key") or os.getenv("GEMINI_API_KEY")
         
         if not api_key:
             error = "API key not provided. Please enter your Gemini API key."
@@ -204,27 +199,21 @@ def index():
                 valid_images = []
 
                 for file in uploaded_files:
-
                     if file and file.filename:
+                        try:
+                            img = Image.open(file.stream)
+                            valid_images.append(img)
+                        except Exception:
+                            error = "Unable to open one of the uploaded images. Please try a different file."
+                            break
 
-                        filepath = os.path.join(
-                            app.config["foldersup"],
-                            file.filename
-                        )
-
-                        file.save(filepath)
-
-                        img = Image.open(filepath)
-
-                        valid_images.append(img)
-
-                if len(valid_images) < 1:
+                if not error and len(valid_images) < 1:
                     error = "Please upload at least 1 image or enter a medication name."
 
-                elif len(valid_images) > 3:
+                elif not error and len(valid_images) > 3:
                     error = "Maximum of 3 images allowed."
 
-                else:
+                elif not error:
 
                     prompt = """
                     Analyze these medication images.
