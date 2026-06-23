@@ -47,7 +47,7 @@ Risk levels are shows as either:
 
 <div align="center">
 
-### Initial Page
+### Initial Page (You need a Gemini API KEY) (ITS FREE!)
 
 <img src="Images/Initial.png" width="850">
 
