@@ -47,9 +47,15 @@ Risk levels are shows as either:
 
 <div align="center">
 
-### Home Page
+### Initial Page
 
 <img src="Images/Initial.png" width="850">
+
+<br><br>
+
+### Home Page
+
+<img src="Images/Home.png" width="850">
 
 <br><br>
 
@@ -87,6 +93,7 @@ Risk levels are shows as either:
 * Pillow
 * python-dotenv
 
+
 ---
 ## Running
 
@@ -95,7 +102,8 @@ Risk levels are shows as either:
 https://medicationcap.vercel.app/
 ```
 
-## Or run it locally
+## Or run it locally by --V
+
 ## Installation
 
 ### Clone the Repository
